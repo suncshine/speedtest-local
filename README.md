@@ -13,7 +13,7 @@
 * **Docker 联动**：完美匹配轻量级 Docker 测速服务端。
 * **核心指标**：支持下载、上传、延迟 (Ping) 及抖动 (Jitter) 测试。
 
-![Screenshot](https://github.com/librespeed/speedtest-android/blob/master/.github/screenshots.png?raw=true)
+![Screenshot](https://github.com/suncshine/speedtest-local/blob/master/.github/screenshots.png?raw=true)
 
 ## 快速开始 (自建服务端)
 
