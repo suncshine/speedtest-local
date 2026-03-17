@@ -1,4 +1,20 @@
+# IDE
+.idea/
+*.iml
+*.iws
+
+# Build
+build/
+.gradle/
+local.properties
+.externalNativeBuild
+.cxx
+captures/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Others
 /_PRIVATE
 .directory
-
- 

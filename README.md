@@ -1,52 +1,30 @@
 ![LibreSpeed-Android Logo](https://github.com/adolfintel/speedtest-android/blob/master/.github/Readme-Logo.png?raw=true)
  
-# LibreSpeed Android Template
-The LibreSpeed Android template allows you to configure and distribute an Android app that performs a speedtest using your existing [LibreSpeed](https://github.com/librespeed/speedtest) server(s).
+# LibreSpeed Android (电视端本地测速)
 
-The template is easy to configure, customize and distribute.
- 
-## Try it
+这是一个基于 [LibreSpeed Android](https://github.com/librespeed/speedtest-android) 模板开发的修改版本。
 
-[<img src="https://fdroid.gitlab.io/artwork/badge/get-it-on.png"
-     alt="Get it on F-Droid"
-     height="80">](https://f-droid.org/packages/com.dosse.speedtest/)
+**本项目的主要初衷是为了方便在电视机 (Android TV) 上进行本地网络测速**。为此对原版进行了简单的二次开发，取消了硬编码服务器列表的限制，改为支持在 UI 界面中通过遥控器或键盘直接输入本地测速服务器的 IP 和端口。
 
-Alternatively, you can [download a demo APK](https://downloads.fdossena.com/geth.php?r=speedtest-android-apk)
-
-## Compatibility
-Android 4.0.3 and up (SDK 15), all architectures.
-
-## Features
-* Download
-* Upload
-* Ping
-* Jitter
-* IP Address, ISP, distance from server (optional)
-* Telemetry (optional)
-* Results sharing (optional)
-* Multiple Points of Test (optional)
+## 功能特性
+* **电视端优化**：支持 Android TV 界面适配，方便遥控器操作。
+* **手动配置服务器**：无需修改代码，直接在 App 中输入自建服务器 IP 和端口。
+* **本地测速优化**：专为测试内网带宽、局域网 Wi-Fi 性能而设计。
+* **Docker 联动**：完美匹配轻量级 Docker 测速服务端。
+* **核心指标**：支持下载、上传、延迟 (Ping) 及抖动 (Jitter) 测试。
 
 ![Screenshot](https://github.com/librespeed/speedtest-android/blob/master/.github/screenshots.png?raw=true)
 
-## Server requirements
-One or more servers with [LibreSpeed](https://github.com/librespeed/speedtest) installed.
+## 快速开始 (自建服务端)
 
-## Donate
-[![Donate with Liberapay](https://liberapay.com/assets/widgets/donate.svg)](https://liberapay.com/fdossena/donate)  
-[Donate with PayPal](https://www.paypal.me/sineisochronic)  
+推荐在 NAS 或个人电脑上使用 Docker 部署轻量化的 Go 语言版服务端：
 
-## License
-Copyright (C) 2020 Federico Dossena
+```bash
+docker run -d --name speedtest -p 8989:8989 minimages/librespeed-speedtest-go
+```
 
-This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU Lesser General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
-(at your option) any later version.
-
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
-
-You should have received a copy of the GNU Lesser General Public License
-along with this program.  If not, see <https://www.gnu.org/licenses/lgpl>.
+**使用步骤：**
+1. 在电视上打开本应用。
+2. 输入服务器的 **IP 地址** (例如: `192.168.1.100`)。
+3. 输入 **端口** (默认为 `8989`)。
+4. 点击 **开始 (Start)** 即可开始测速。

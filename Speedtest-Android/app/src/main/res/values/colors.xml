@@ -1,26 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="splashBackground">#6060AA</color>
     <color name="appBackground">#FFFFFF</color>
-    <color name="textColor">#404040</color>
-    <color name="loadingColor">#6060AA</color>
-    <color name="gaugesBackground">#AACCCCCC</color>
-    <color name="progressBackground">#AACCCCCC</color>
-    <color name="progressColor">#AAAAAA</color>
-    <color name="dlGauge">#6060AA</color>
-    <color name="dlText">#616161</color>
-    <color name="ulGauge">#616161</color>
-    <color name="ulText">#616161</color>
-    <color name="pingText">#AA6060</color>
-    <color name="jitterText">#AA6060</color>
-    <color name="serverText">#808080</color>
-    <color name="startButton_background">#6060AA</color>
+    <color name="textColor">#212121</color>  <!-- Darker for better TV visibility -->
+    <color name="loadingColor">#4A5CA8</color>
+    <color name="gaugesBackground">#424242</color>  <!-- Better contrast -->
+    <color name="progressBackground">#424242</color>
+    <color name="progressColor">#2196F3</color>  <!-- Brighter blue -->
+    <color name="dlGauge">#2196F3</color>  <!-- Better for TV -->
+    <color name="dlText">#212121</color>  <!-- Better contrast -->
+    <color name="ulGauge">#FF9800</color>  <!-- Better for TV -->
+    <color name="ulText">#212121</color>  <!-- Better contrast -->
+    <color name="pingText">#E91E63</color>  <!-- Better contrast -->
+    <color name="jitterText">#E91E63</color>  <!-- Better contrast -->
+    <color name="serverText">#212121</color>  <!-- Better contrast -->
+    <color name="startButton_background">#2196F3</color>  <!-- Better TV button color -->
     <color name="startButton_text">#FFFFFF</color>
-    <color name="failButton_background">#6060AA</color>
+    <color name="failButton_background">#2196F3</color>  <!-- Better TV button color -->
     <color name="failButton_text">#FFFFFF</color>
-    <color name="shareButton_background">#BF360C</color>
+    <color name="shareButton_background">#4CAF50</color>  <!-- Better contrast -->
     <color name="shareButton_text">#FFFFFF</color>
-    <color name="restartButton_background">#6060AA</color>
+    <color name="restartButton_background">#2196F3</color>  <!-- Better TV button color -->
     <color name="restartButton_text">#FFFFFF</color>
-    <color name="privacyLinks">#808080</color>
+    <color name="privacyLinks">#2196F3</color>  <!-- Better for TV -->
+    <color name="focusedColor">#FFEB3B</color>  <!-- Yellow for focus highlight -->
+    <color name="focusedButtonBackground">#1976D2</color> <!-- Darker blue for focused button -->
 </resources>

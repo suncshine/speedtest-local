@@ -1,0 +1,451 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.fdossena.speedtest.ui.MainActivity"
+    android:background="@color/appBackground">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:id="@+id/testBackground"
+        />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- SPLASH PAGE -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:id="@+id/page_splash"
+            android:visibility="invisible"
+            android:background="@color/appBackground"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            >
+            <ImageView
+                android:layout_width="@dimen/logo_maxWidth"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_medium"
+                android:src="@drawable/logo" />
+        </RelativeLayout>
+
+        <!-- INIT PAGE -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:id="@+id/page_init"
+            android:visibility="invisible"
+            >
+            <ProgressBar
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/loading_size"
+                android:id="@+id/init_progress"
+                android:layout_centerHorizontal="true"
+                android:indeterminate="true"
+                android:indeterminateTint="@color/loadingColor"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TEXT GOES HERE"
+                android:layout_toRightOf="@id/init_progress"
+                android:layout_toEndOf="@id/init_progress"
+                android:id="@+id/init_text"
+                android:layout_centerHorizontal="true"
+                android:textColor="@color/textColor"
+                android:textSize="@dimen/text"
+                />
+        </RelativeLayout>
+
+        <!-- FAIL PAGE -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:id="@+id/page_fail"
+            android:visibility="invisible"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ERROR DESCRIPTION"
+                android:id="@+id/fail_text"
+                android:layout_centerHorizontal="true"
+                android:textColor="@color/textColor"
+                android:textSize="@dimen/text"
+                />
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_sep"
+                android:text="ACTION"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@id/fail_text"
+                android:id="@+id/fail_button"
+                android:background="@drawable/button_selector"
+                android:textColor="@color/failButton_text"
+                android:textSize="@dimen/failButton_text"
+                android:paddingLeft="@dimen/failButton_hPadding"
+                android:paddingRight="@dimen/failButton_hPadding"
+                android:paddingTop="@dimen/failButton_vPadding"
+                android:paddingBottom="@dimen/failButton_vPadding"
+                android:focusable="true"
+                android:nextFocusUp="@id/fail_button"
+                android:nextFocusDown="@id/fail_button"
+                />
+        </RelativeLayout>
+
+        <!-- SERVER SELECT (CONFIG) PAGE - Optimized for TV -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:id="@+id/page_serverSelect"
+            android:visibility="invisible"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Enter LibreSpeed server details"
+                android:id="@+id/selectServer_message"
+                android:layout_centerHorizontal="true"
+                android:textColor="@color/textColor"
+                android:textSize="@dimen/text"
+                />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_below="@id/selectServer_message"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:id="@+id/config_container"
+                android:gravity="center_vertical">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginRight="24dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Server IP Address:"
+                        android:textColor="@color/textColor"
+                        android:textSize="@dimen/text"
+                        android:layout_marginBottom="8dp"/>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <EditText
+                            android:layout_width="60dp"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/ip_segment_1"
+                            android:inputType="number"
+                            android:maxLength="3"
+                            android:gravity="center"
+                            android:background="@drawable/edit_text_selector"
+                            android:padding="8dp"
+                            android:focusable="true"/>
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="." android:textColor="@color/textColor"/>
+                        <EditText
+                            android:layout_width="60dp"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/ip_segment_2"
+                            android:inputType="number"
+                            android:maxLength="3"
+                            android:gravity="center"
+                            android:background="@drawable/edit_text_selector"
+                            android:padding="8dp"
+                            android:focusable="true"/>
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="." android:textColor="@color/textColor"/>
+                        <EditText
+                            android:layout_width="60dp"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/ip_segment_3"
+                            android:inputType="number"
+                            android:maxLength="3"
+                            android:gravity="center"
+                            android:background="@drawable/edit_text_selector"
+                            android:padding="8dp"
+                            android:focusable="true"/>
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="." android:textColor="@color/textColor"/>
+                        <EditText
+                            android:layout_width="60dp"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/ip_segment_4"
+                            android:inputType="number"
+                            android:maxLength="3"
+                            android:gravity="center"
+                            android:background="@drawable/edit_text_selector"
+                            android:padding="8dp"
+                            android:focusable="true"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Port:"
+                        android:textColor="@color/textColor"
+                        android:textSize="@dimen/text"
+                        android:layout_marginBottom="8dp"/>
+                    <EditText
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/port_input"
+                        android:inputType="number"
+                        android:maxLength="5"
+                        android:gravity="center"
+                        android:background="@drawable/edit_text_selector"
+                        android:padding="8dp"
+                        android:focusable="true"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:text="@string/start"
+                android:id="@+id/start"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@id/config_container"
+                android:background="@drawable/button_selector"
+                android:textColor="@color/startButton_text"
+                android:textSize="@dimen/startButton_text"
+                android:paddingLeft="32dp"
+                android:paddingRight="32dp"
+                android:paddingTop="12dp"
+                android:paddingBottom="12dp"
+                android:focusable="true"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/privacy_open"
+                android:layout_centerHorizontal="true"
+                android:padding="8dp"
+                android:id="@+id/privacy_open"
+                android:layout_below="@id/start"
+                android:layout_marginTop="16dp"
+                android:textColor="@color/privacyLinks"
+                android:textSize="@dimen/privacyLinks"
+                android:focusable="true"
+                />
+        </RelativeLayout>
+
+        <!-- PRIVACY PAGE -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/page_privacy"
+            android:visibility="invisible"
+            android:background="@color/appBackground"
+            >
+            <WebView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_above="@id/privacy_close"
+                android:id="@+id/privacy_policy"
+                android:focusable="true"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentBottom="true"
+                android:padding="16dp"
+                android:text="@string/privacy_close"
+                android:id="@+id/privacy_close"
+                android:textColor="@color/privacyLinks"
+                android:textSize="@dimen/privacyLinks"
+                android:focusable="true"
+                />
+        </RelativeLayout>
+
+        <!-- TEST PAGE - Widescreen Grid Layout -->
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/page_test"
+            android:visibility="invisible"
+            android:fillViewport="true"
+            >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:gravity="center_horizontal">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="SERVER NAME"
+                    android:gravity="center"
+                    android:id="@+id/serverName"
+                    android:textColor="@color/serverText"
+                    android:textSize="@dimen/serverText"
+                    android:layout_marginTop="8dp"
+                    />
+
+                <!-- Main Content Grid -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="16dp"
+                    android:gravity="center">
+
+                    <!-- Left: Gauges -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1.2"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center">
+
+                        <!-- Download Gauge -->
+                        <RelativeLayout
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/dlArea"
+                            android:padding="8dp">
+                            <TextView
+                                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                android:text="@string/test_dl" android:id="@+id/dlLabel"
+                                android:textSize="@dimen/gaugeLabel" android:layout_centerHorizontal="true"
+                                android:textColor="@color/textColor" />
+                            <com.fdossena.speedtest.ui.GaugeView
+                                android:layout_width="match_parent" android:layout_height="@dimen/gaugeSize"
+                                android:id="@+id/dlGauge" android:layout_centerHorizontal="true" android:layout_below="@id/dlLabel"
+                                app:gauge_strokeWidth="@dimen/gaugeThickness" app:gauge_backgroundColor="@color/gaugesBackground" app:gauge_fillColor="@color/dlGauge" />
+                            <TextView
+                                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                android:text="0.00" android:id="@+id/dlText"
+                                android:layout_centerInParent="true" android:textSize="@dimen/gaugeText"
+                                android:textColor="@color/dlText" android:fontFamily="sans-serif-condensed-light"/>
+                            <ProgressBar
+                                android:layout_width="100dp" android:layout_height="wrap_content"
+                                style="@android:style/Widget.DeviceDefault.ProgressBar.Horizontal"
+                                android:layout_below="@id/dlGauge" android:layout_centerHorizontal="true"
+                                android:id="@+id/dlProgress" android:progressTint="@color/progressColor" />
+                        </RelativeLayout>
+
+                        <!-- Upload Gauge -->
+                        <RelativeLayout
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/ulArea"
+                            android:padding="8dp">
+                            <TextView
+                                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                android:text="@string/test_ul" android:id="@+id/ulLabel"
+                                android:textSize="@dimen/gaugeLabel" android:layout_centerHorizontal="true"
+                                android:textColor="@color/textColor" />
+                            <com.fdossena.speedtest.ui.GaugeView
+                                android:layout_width="match_parent" android:layout_height="@dimen/gaugeSize"
+                                android:id="@+id/ulGauge" android:layout_centerHorizontal="true" android:layout_below="@id/ulLabel"
+                                app:gauge_strokeWidth="@dimen/gaugeThickness" app:gauge_backgroundColor="@color/gaugesBackground" app:gauge_fillColor="@color/ulGauge" />
+                            <TextView
+                                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                android:text="0.00" android:id="@+id/ulText"
+                                android:layout_centerInParent="true" android:textSize="@dimen/gaugeText"
+                                android:textColor="@color/ulText" android:fontFamily="sans-serif-condensed-light"/>
+                            <ProgressBar
+                                android:layout_width="100dp" android:layout_height="wrap_content"
+                                style="@android:style/Widget.DeviceDefault.ProgressBar.Horizontal"
+                                android:layout_below="@id/ulGauge" android:layout_centerHorizontal="true"
+                                android:id="@+id/ulProgress" android:progressTint="@color/progressColor" />
+                        </RelativeLayout>
+                    </LinearLayout>
+
+                    <!-- Right: Ping/Jitter/IP Info -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="0.8"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="16dp"
+                        android:background="#10000000">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                            <LinearLayout
+                                android:layout_width="0dp" android:layout_weight="1"
+                                android:layout_height="wrap_content" android:orientation="vertical" android:gravity="center">
+                                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/test_ping" android:textSize="14sp"/>
+                                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/pingText" android:textSize="24sp" android:textColor="@color/pingText" android:text="0"/>
+                            </LinearLayout>
+                            <LinearLayout
+                                android:layout_width="0dp" android:layout_weight="1"
+                                android:layout_height="wrap_content" android:orientation="vertical" android:gravity="center">
+                                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/test_jitter" android:textSize="14sp"/>
+                                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/jitterText" android:textSize="24sp" android:textColor="@color/jitterText" android:text="0"/>
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/ipInfo"
+                            android:layout_marginTop="16dp"
+                            android:gravity="center"
+                            android:textColor="@color/textColor"
+                            android:textSize="14sp"
+                            android:text="IP INFO"
+                            />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/endTestArea"
+                            android:layout_marginTop="24dp"
+                            android:gravity="center"
+                            android:orientation="vertical">
+                            <Button
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/restartButton"
+                                android:background="@drawable/button_selector"
+                                android:textColor="@color/restartButton_text"
+                                android:text="@string/test_restart"
+                                android:focusable="true"
+                                />
+                            <Button
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/shareButton"
+                                android:layout_marginTop="8dp"
+                                android:background="@drawable/button_selector"
+                                android:textColor="@color/shareButton_text"
+                                android:text="@string/test_share"
+                                android:focusable="true"
+                                />
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+    </RelativeLayout>
+</FrameLayout>

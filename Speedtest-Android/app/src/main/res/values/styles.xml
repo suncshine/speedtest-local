@@ -1,15 +1,39 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="android:Theme.Holo.Light.DarkActionBar">
+    <style name="AppTheme" parent="android:Theme.Material.Light.DarkActionBar">
         <item name="android:textColor">@color/textColor</item>
         <item name="android:textSize">@dimen/text</item>
         <item name="android:windowBackground">@color/appBackground</item>
+        <!-- TV specific styling -->
+        <item name="android:focusable">true</item>
+        <item name="android:focusableInTouchMode">true</item>
     </style>
 
     <style name="AppTheme.NoActionBar" parent="AppTheme">
         <item name="android:windowActionBar">false</item>
         <item name="android:windowNoTitle">true</item>
+        
+        <!-- 适配 Android 12+ 系统启动页 -->
+        <item name="android:windowSplashScreenBackground">@color/appBackground</item>
+        <!-- 显式将启动图标替换成你的 logo 图片 -->
+        <item name="android:windowSplashScreenAnimatedIcon">@drawable/logo</item>
+        
+        <!-- 下面两行能让系统在代码加载好之后平滑过渡，不再显示错位的“图标”预加载页面 -->
+        <item name="android:windowDisablePreview">true</item>
+        <item name="android:windowBackground">@color/appBackground</item>
+    </style>
+
+    <!-- Button style optimized for TV -->
+    <style name="TVButtonStyle">
+        <item name="android:focusable">true</item>
+        <item name="android:focusableInTouchMode">true</item>
+    </style>
+
+    <!-- Spinner style optimized for TV -->
+    <style name="TVSpinnerStyle">
+        <item name="android:focusable">true</item>
+        <item name="android:focusableInTouchMode">true</item>
     </style>
 
 </resources>

@@ -21,48 +21,32 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="center"
-            android:id="@+id/page_splash"
-            android:visibility="invisible"
-            android:background="@color/splashBackground"
-            >
-
-            <ImageView
-                android:layout_width="@dimen/logo_maxWidth"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/margin_medium"
-                android:src="@drawable/logo" />
-
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
             android:id="@+id/page_init"
             android:visibility="invisible"
             >
-
-            <ProgressBar
-                android:layout_width="wrap_content"
-                android:layout_height="@dimen/loading_size"
-                android:id="@+id/init_progress"
-                android:layout_centerHorizontal="true"
-                android:indeterminate="true"
-                android:indeterminateTint="@color/loadingColor"
-                />
-
-            <TextView
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="TEXT GOES HERE"
-                android:layout_toRightOf="@id/init_progress"
-                android:layout_toEndOf="@id/init_progress"
-                android:id="@+id/init_text"
-                android:layout_centerHorizontal="true"
-                android:textColor="@color/textColor"
-                android:textSize="@dimen/text"
-                />
+                android:layout_centerInParent="true"
+                android:orientation="vertical"
+                android:gravity="center">
+                <ProgressBar
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/loading_size"
+                    android:id="@+id/init_progress"
+                    android:indeterminate="true"
+                    android:indeterminateTint="@color/loadingColor"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="TEXT GOES HERE"
+                    android:id="@+id/init_text"
+                    android:textColor="@color/textColor"
+                    android:textSize="@dimen/text"
+                    />
+            </LinearLayout>
         </RelativeLayout>
 
         <RelativeLayout
@@ -72,7 +56,6 @@
             android:id="@+id/page_fail"
             android:visibility="invisible"
             >
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -82,7 +65,6 @@
                 android:textColor="@color/textColor"
                 android:textSize="@dimen/text"
                 />
-
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -91,15 +73,15 @@
                 android:layout_centerHorizontal="true"
                 android:layout_below="@id/fail_text"
                 android:id="@+id/fail_button"
-                android:background="@color/failButton_background"
+                android:background="@drawable/button_selector"
                 android:textColor="@color/failButton_text"
                 android:textSize="@dimen/failButton_text"
                 android:paddingLeft="@dimen/failButton_hPadding"
                 android:paddingRight="@dimen/failButton_hPadding"
                 android:paddingTop="@dimen/failButton_vPadding"
                 android:paddingBottom="@dimen/failButton_vPadding"
+                android:focusable="true"
                 />
-
         </RelativeLayout>
 
         <RelativeLayout
@@ -109,57 +91,134 @@
             android:id="@+id/page_serverSelect"
             android:visibility="invisible"
             >
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/serverSelect_message"
+                android:text="Enter LibreSpeed server details"
                 android:id="@+id/selectServer_message"
                 android:layout_centerHorizontal="true"
                 android:textColor="@color/textColor"
                 android:textSize="@dimen/text"
                 />
-
-            <Spinner
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/serverList"
+                android:text="Server IP Address:"
+                android:id="@+id/ip_label"
                 android:layout_below="@id/selectServer_message"
-                android:layout_marginTop="@dimen/margin_largeSep"
                 android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/margin_largeSep"
+                android:textColor="@color/textColor"
                 android:textSize="@dimen/text"
                 />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_below="@id/ip_label"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/margin_smallSep"
+                android:id="@+id/ip_input_layout">
+                <EditText
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/ip_segment_1"
+                    android:inputType="number"
+                    android:maxLength="3"
+                    android:gravity="center"
+                    android:background="@drawable/edit_text_selector"
+                    android:padding="8dp"
+                    android:focusable="true"/>
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="." android:textColor="@color/textColor" android:layout_gravity="center_vertical"/>
+                <EditText
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/ip_segment_2"
+                    android:inputType="number"
+                    android:maxLength="3"
+                    android:gravity="center"
+                    android:background="@drawable/edit_text_selector"
+                    android:padding="8dp"
+                    android:focusable="true"/>
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="." android:textColor="@color/textColor" android:layout_gravity="center_vertical"/>
+                <EditText
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/ip_segment_3"
+                    android:inputType="number"
+                    android:maxLength="3"
+                    android:gravity="center"
+                    android:background="@drawable/edit_text_selector"
+                    android:padding="8dp"
+                    android:focusable="true"/>
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="." android:textColor="@color/textColor" android:layout_gravity="center_vertical"/>
+                <EditText
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/ip_segment_4"
+                    android:inputType="number"
+                    android:maxLength="3"
+                    android:gravity="center"
+                    android:background="@drawable/edit_text_selector"
+                    android:padding="8dp"
+                    android:focusable="true"/>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Port:"
+                android:id="@+id/port_label"
+                android:layout_below="@id/ip_input_layout"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="16dp"
+                android:textColor="@color/textColor"
+                android:textSize="@dimen/text"
+                />
+            <EditText
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/port_input"
+                android:layout_below="@id/port_label"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="8dp"
+                android:inputType="number"
+                android:maxLength="5"
+                android:gravity="center"
+                android:background="@drawable/edit_text_selector"
+                android:padding="8dp"
+                android:focusable="true"/>
 
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_sep"
+                android:layout_marginTop="24dp"
                 android:text="@string/start"
                 android:id="@+id/start"
                 android:layout_centerHorizontal="true"
-                android:layout_below="@id/serverList"
-                android:background="@color/startButton_background"
+                android:layout_below="@id/port_input"
+                android:background="@drawable/button_selector"
                 android:textColor="@color/startButton_text"
                 android:textSize="@dimen/startButton_text"
-                android:paddingLeft="@dimen/startButton_hPadding"
-                android:paddingRight="@dimen/startButton_hPadding"
-                android:paddingTop="@dimen/startButton_vPadding"
-                android:paddingBottom="@dimen/startButton_vPadding"
+                android:paddingLeft="32dp"
+                android:paddingRight="32dp"
+                android:paddingTop="12dp"
+                android:paddingBottom="12dp"
+                android:focusable="true"
                 />
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/privacy_open"
                 android:layout_centerHorizontal="true"
-                android:paddingBottom="@dimen/margin_medium"
+                android:padding="8dp"
                 android:id="@+id/privacy_open"
                 android:layout_below="@id/start"
-                android:layout_marginTop="@dimen/margin_sep"
+                android:layout_marginTop="16dp"
                 android:textColor="@color/privacyLinks"
                 android:textSize="@dimen/privacyLinks"
+                android:focusable="true"
                 />
-
         </RelativeLayout>
 
         <RelativeLayout
@@ -174,21 +233,20 @@
                 android:layout_height="match_parent"
                 android:layout_above="@id/privacy_close"
                 android:id="@+id/privacy_policy"
+                android:focusable="true"
                 />
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:layout_alignParentBottom="true"
-                android:paddingBottom="@dimen/margin_medium"
-                android:layout_marginTop="@dimen/margin_sep"
+                android:padding="16dp"
                 android:text="@string/privacy_close"
                 android:id="@+id/privacy_close"
                 android:textColor="@color/privacyLinks"
                 android:textSize="@dimen/privacyLinks"
+                android:focusable="true"
                 />
-
         </RelativeLayout>
 
         <ScrollView
@@ -198,33 +256,22 @@
             android:visibility="invisible"
             android:layout_centerVertical="true"
             >
-
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:padding="@dimen/margin_smallSep"
                 >
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="@dimen/logo_inapp_height"
-                    android:id="@+id/logo_inapp"
-                    android:layout_marginBottom="@dimen/margin_smallSep"
-                    android:src="@drawable/logo_inapp"
-                    />
-
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="SERVER NAME"
                     android:gravity="center"
-                    android:layout_below="@id/logo_inapp"
                     android:id="@+id/serverName"
                     android:layout_marginBottom="@dimen/margin_sep"
                     android:textColor="@color/serverText"
                     android:textSize="@dimen/serverText"
-                    ></TextView>
-
+                    />
                 <LinearLayout
                     android:layout_width="@dimen/pingArea_maxWidth"
                     android:layout_height="wrap_content"
@@ -233,14 +280,12 @@
                     android:layout_centerHorizontal="true"
                     android:layout_below="@+id/serverName"
                     >
-
                     <RelativeLayout
                         android:layout_width="0dp"
                         android:layout_weight="0.5"
                         android:layout_height="wrap_content"
                         android:id="@+id/pingRL"
                         >
-
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -256,39 +301,17 @@
                             android:layout_below="@id/pingLabel"
                             android:layout_centerHorizontal="true">
                             <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="PING"
-                                android:id="@+id/pingText"
-                                android:textSize="@dimen/pingJitterText"
-                                android:typeface="sans"
-                                android:fontFamily="sans-serif-condensed-light"
-                                android:singleLine="true"
-                                android:scrollHorizontally="false"
-                                android:textColor="@color/pingText"
-                            />
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="@string/test_timeMeasure"
-                                android:layout_toRightOf="@id/pingText"
-                                android:layout_alignBaseline="@id/pingText"
-                                android:textSize="@dimen/timeMeasure"
-                                android:layout_marginLeft="@dimen/margin_smallSep"
-                                android:layout_marginStart="@dimen/margin_smallSep"
-                                android:textColor="@color/pingText"
-                                />
+                                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                android:text="0" android:id="@+id/pingText"
+                                android:textSize="@dimen/pingJitterText" android:textColor="@color/pingText"
+                                android:fontFamily="sans-serif-condensed-light" />
                         </LinearLayout>
                     </RelativeLayout>
-
                     <RelativeLayout
                         android:layout_width="0dp"
                         android:layout_weight="0.5"
                         android:layout_height="wrap_content"
-                        android:layout_toRightOf="@id/pingRL"
-                        android:layout_toEndOf="@id/pingRL"
                         >
-
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -304,28 +327,10 @@
                             android:layout_below="@id/jitterLabel"
                             android:layout_centerHorizontal="true">
                             <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="JITTER"
-                                android:id="@+id/jitterText"
-                                android:textSize="@dimen/pingJitterText"
-                                android:typeface="sans"
-                                android:fontFamily="sans-serif-condensed-light"
-                                android:singleLine="true"
-                                android:scrollHorizontally="false"
-                                android:textColor="@color/jitterText"
-                                />
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="@string/test_timeMeasure"
-                                android:layout_toRightOf="@id/jitterText"
-                                android:layout_alignBaseline="@id/jitterText"
-                                android:textSize="@dimen/timeMeasure"
-                                android:layout_marginLeft="@dimen/margin_smallSep"
-                                android:layout_marginStart="@dimen/margin_smallSep"
-                                android:textColor="@color/jitterText"
-                                />
+                                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                android:text="0" android:id="@+id/jitterText"
+                                android:textSize="@dimen/pingJitterText" android:textColor="@color/jitterText"
+                                android:fontFamily="sans-serif-condensed-light" />
                         </LinearLayout>
                     </RelativeLayout>
                 </LinearLayout>
@@ -339,198 +344,100 @@
                     android:layout_below="@id/pingArea"
                     android:layout_marginTop="@dimen/margin_sep"
                     >
-
                     <RelativeLayout
                         android:layout_width="0dp"
                         android:layout_weight="0.5"
                         android:layout_height="wrap_content"
                         android:id="@+id/dlArea"
                         >
-
                         <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/test_dl"
-                            android:id="@+id/dlLabel"
-                            android:textSize="@dimen/gaugeLabel"
-                            android:layout_centerHorizontal="true"
-                            android:textColor="@color/textColor"
-                            />
-
+                            android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="@string/test_dl" android:id="@+id/dlLabel"
+                            android:textSize="@dimen/gaugeLabel" android:layout_centerHorizontal="true"
+                            android:textColor="@color/textColor" />
                         <com.fdossena.speedtest.ui.GaugeView
-                            android:layout_width="match_parent"
-                            android:layout_height="@dimen/gaugeSize"
-                            android:id="@+id/dlGauge"
-                            android:layout_centerHorizontal="true"
-                            android:layout_below="@id/dlLabel"
-                            app:gauge_startAngle="135"
-                            app:gauge_angles="270"
-                            app:gauge_strokeWidth="@dimen/gaugeThickness"
-                            app:gauge_backgroundColor="@color/gaugesBackground"
-                            app:gauge_fillColor="@color/dlGauge"
-                            />
-
+                            android:layout_width="match_parent" android:layout_height="@dimen/gaugeSize"
+                            android:id="@+id/dlGauge" android:layout_centerHorizontal="true" android:layout_below="@id/dlLabel"
+                            app:gauge_strokeWidth="@dimen/gaugeThickness" app:gauge_backgroundColor="@color/gaugesBackground" app:gauge_fillColor="@color/dlGauge" />
+                        <TextView
+                            android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="0.00" android:id="@+id/dlText"
+                            android:layout_centerInParent="true" android:textSize="@dimen/gaugeText"
+                            android:textColor="@color/dlText" android:fontFamily="sans-serif-condensed-light"/>
                         <ProgressBar
-                            android:layout_width="@dimen/progressSize"
-                            android:layout_height="wrap_content"
+                            android:layout_width="@dimen/progressSize" android:layout_height="wrap_content"
                             style="@android:style/Widget.DeviceDefault.ProgressBar.Horizontal"
-                            android:max="100"
-                            android:layout_below="@id/dlGauge"
-                            android:layout_centerHorizontal="true"
-                            android:id="@+id/dlProgress"
-                            android:backgroundTint="@color/progressBackground"
-                            android:progressTint="@color/progressColor"
-                            />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="DLOAD"
-                            android:id="@+id/dlText"
-                            android:layout_centerHorizontal="true"
-                            android:layout_centerVertical="true"
-                            android:textSize="@dimen/gaugeText"
-                            android:typeface="sans"
-                            android:fontFamily="sans-serif-condensed-light"
-                            android:singleLine="true"
-                            android:scrollHorizontally="false"
-                            android:textColor="@color/dlText"
-                            />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignBottom="@id/dlGauge"
-                            android:text="@string/test_speedMeasure"
-                            android:layout_centerHorizontal="true"
-                            android:textSize="@dimen/speedMeasure"
-                            />
+                            android:layout_below="@id/dlGauge" android:layout_centerHorizontal="true"
+                            android:id="@+id/dlProgress" android:progressTint="@color/progressColor" />
                     </RelativeLayout>
-
                     <RelativeLayout
                         android:layout_width="0dp"
                         android:layout_weight="0.5"
                         android:layout_height="wrap_content"
                         android:id="@+id/ulArea"
-                        android:layout_toRightOf="@id/dlArea"
-                        android:layout_toEndOf="@id/dlArea">
-
+                        >
                         <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/test_ul"
-                            android:id="@+id/ulLabel"
-                            android:textSize="@dimen/gaugeLabel"
-                            android:layout_centerHorizontal="true"
-                            android:textColor="@color/textColor"
-                            />
-
+                            android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="@string/test_ul" android:id="@+id/ulLabel"
+                            android:textSize="@dimen/gaugeLabel" android:layout_centerHorizontal="true"
+                            android:textColor="@color/textColor" />
                         <com.fdossena.speedtest.ui.GaugeView
-                            android:layout_width="match_parent"
-                            android:layout_height="@dimen/gaugeSize"
-                            android:id="@+id/ulGauge"
-                            android:layout_centerHorizontal="true"
-                            android:layout_below="@id/ulLabel"
-                            app:gauge_startAngle="135"
-                            app:gauge_angles="270"
-                            app:gauge_strokeWidth="@dimen/gaugeThickness"
-                            app:gauge_backgroundColor="@color/gaugesBackground"
-                            app:gauge_fillColor="@color/ulGauge"
-                            />
-
+                            android:layout_width="match_parent" android:layout_height="@dimen/gaugeSize"
+                            android:id="@+id/ulGauge" android:layout_centerHorizontal="true" android:layout_below="@id/ulLabel"
+                            app:gauge_strokeWidth="@dimen/gaugeThickness" app:gauge_backgroundColor="@color/gaugesBackground" app:gauge_fillColor="@color/ulGauge" />
+                        <TextView
+                            android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="0.00" android:id="@+id/ulText"
+                            android:layout_centerInParent="true" android:textSize="@dimen/gaugeText"
+                            android:textColor="@color/ulText" android:fontFamily="sans-serif-condensed-light"/>
                         <ProgressBar
-                            android:layout_width="@dimen/progressSize"
-                            android:layout_height="wrap_content"
+                            android:layout_width="@dimen/progressSize" android:layout_height="wrap_content"
                             style="@android:style/Widget.DeviceDefault.ProgressBar.Horizontal"
-                            android:max="100"
-                            android:layout_below="@id/ulGauge"
-                            android:layout_centerHorizontal="true"
-                            android:id="@+id/ulProgress"
-                            android:backgroundTint="@color/progressBackground"
-                            android:progressTint="@color/progressColor"
-                            />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="ULOAD"
-                            android:id="@+id/ulText"
-                            android:layout_centerHorizontal="true"
-                            android:layout_centerVertical="true"
-                            android:textSize="@dimen/gaugeText"
-                            android:typeface="sans"
-                            android:fontFamily="sans-serif-condensed-light"
-                            android:singleLine="true"
-                            android:scrollHorizontally="false"
-                            android:textColor="@color/ulText"
-                            />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignBottom="@id/ulGauge"
-                            android:text="@string/test_speedMeasure"
-                            android:layout_centerHorizontal="true"
-                            android:textSize="@dimen/speedMeasure"
-                            />
+                            android:layout_below="@id/ulGauge" android:layout_centerHorizontal="true"
+                            android:id="@+id/ulProgress" android:progressTint="@color/progressColor" />
                     </RelativeLayout>
                 </LinearLayout>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="IP ADDRESS - ISP NAME (DISTANCE)"
-                    android:layout_centerHorizontal="true"
                     android:id="@+id/ipInfo"
                     android:layout_below="@id/gaugeArea"
                     android:layout_marginTop="@dimen/margin_sep"
-                    android:ellipsize="none"
-                    android:maxLines="100"
-                    android:scrollHorizontally="false"
                     android:textSize="@dimen/ipInfoText"
                     android:gravity="center"
                     android:textColor="@color/textColor"
                     />
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/endTestArea"
                     android:layout_below="@id/ipInfo"
                     android:layout_marginTop="@dimen/margin_sep"
-                    android:gravity="center">
-
+                    android:gravity="center"
+                    android:orientation="vertical">
                     <Button
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="@dimen/restartButton_text"
                         android:id="@+id/restartButton"
-                        android:background="@color/restartButton_background"
+                        android:background="@drawable/button_selector"
                         android:textColor="@color/restartButton_text"
                         android:text="@string/test_restart"
-                        android:paddingLeft="@dimen/restartButton_hPadding"
-                        android:paddingRight="@dimen/restartButton_hPadding"
-                        android:paddingTop="@dimen/restartButton_vPadding"
-                        android:paddingBottom="@dimen/restartButton_vPadding"
-                        android:layout_marginRight="@dimen/margin_smallSep"
-                        android:layout_marginEnd="@dimen/margin_smallSep"
+                        android:padding="12dp"
+                        android:focusable="true"
                         />
-
                     <Button
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="@dimen/shareButton_text"
                         android:id="@+id/shareButton"
-                        android:background="@color/shareButton_background"
+                        android:layout_marginTop="8dp"
+                        android:background="@drawable/button_selector"
                         android:textColor="@color/shareButton_text"
                         android:text="@string/test_share"
-                        android:paddingLeft="@dimen/shareButton_hPadding"
-                        android:paddingRight="@dimen/shareButton_hPadding"
-                        android:paddingTop="@dimen/shareButton_vPadding"
-                        android:paddingBottom="@dimen/shareButton_vPadding"
+                        android:padding="12dp"
+                        android:focusable="true"
                         />
                 </LinearLayout>
             </RelativeLayout>
         </ScrollView>
     </RelativeLayout>
-
 </FrameLayout>

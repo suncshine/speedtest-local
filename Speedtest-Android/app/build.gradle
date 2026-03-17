@@ -1,24 +1,53 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 28
-    buildToolsVersion "29.0.0"
+    namespace 'dev.local.speedtest'  // Required for AGP 8+
+    compileSdkVersion 34
+    buildToolsVersion "34.0.0"
+
     defaultConfig {
-        applicationId "your.name.here.speedtest"
-        minSdkVersion 15
-        targetSdkVersion 28
-        versionCode 9
-        versionName '1.2.3'
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        applicationId "dev.local.speedtest"
+        minSdkVersion 21  // Minimum for TV is API 21
+        targetSdkVersion 34
+        versionCode 11  // Incremented for Android 11+ support
+        versionName '1.2.5'
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        // For Android 11+ compatibility
+        manifestPlaceholders = [
+            'appAuthRedirectScheme': 'dev.local.speedtest'
+        ]
     }
+
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    // For Android 11+ compatibility
+    packagingOptions {
+        resources.excludes.add("META-INF/*")
+    }
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+    // Android TV support
+    implementation 'androidx.leanback:leanback:1.0.0'
+    implementation 'androidx.leanback:leanback-preference:1.0.0'
+    // Core libraries
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+
+    // Testing dependencies
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 }

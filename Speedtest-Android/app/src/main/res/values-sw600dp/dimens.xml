@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="text">22sp</dimen>  <!-- Larger for TV -->
+    <dimen name="speedMeasure">28sp</dimen>  <!-- Larger for TV -->
+    <dimen name="timeMeasure">26sp</dimen>  <!-- Larger for TV -->
+    <dimen name="serverText">20sp</dimen>  <!-- Larger for TV -->
+    <dimen name="pingJitterLabel">24sp</dimen>  <!-- Larger for TV -->
+    <dimen name="pingJitterText">42sp</dimen>  <!-- Larger for TV -->
+    <dimen name="gaugeLabel">24sp</dimen>  <!-- Larger for TV -->
+    <dimen name="gaugeText">46sp</dimen>  <!-- Larger for TV -->
+    <dimen name="gaugeSize">220dp</dimen>  <!-- Larger for TV -->
+    <dimen name="gaugeThickness">14dp</dimen>  <!-- Larger for TV -->
+    <dimen name="progressSize">120dp</dimen>  <!-- Larger for TV -->
+    <dimen name="ipInfoText">20sp</dimen>  <!-- Larger for TV -->
+    <dimen name="privacyLinks">20sp</dimen>  <!-- Larger for TV -->
+
+    <dimen name="pingArea_maxWidth">500dp</dimen>  <!-- Wider for TV -->
+    <dimen name="gaugeArea_maxWidth">800dp</dimen>  <!-- Wider for TV -->
+
+    <dimen name="logo_maxWidth">600dp</dimen>  <!-- Larger for TV -->
+    <dimen name="logo_inapp_height">100dp</dimen>  <!-- Larger for TV -->
+    <dimen name="loading_size">36dp</dimen>  <!-- Larger for TV -->
+
+    <dimen name="failButton_text">20sp</dimen>  <!-- Larger for TV -->
+    <dimen name="failButton_hPadding">12dp</dimen>  <!-- Larger padding for TV -->
+    <dimen name="failButton_vPadding">12dp</dimen>  <!-- Larger padding for TV -->
+    <dimen name="startButton_text">20sp</dimen>  <!-- Larger for TV -->
+    <dimen name="startButton_hPadding">12dp</dimen>  <!-- Larger padding for TV -->
+    <dimen name="startButton_vPadding">12dp</dimen>  <!-- Larger padding for TV -->
+    <dimen name="shareButton_text">20sp</dimen>  <!-- Larger for TV -->
+    <dimen name="shareButton_hPadding">12dp</dimen>  <!-- Larger padding for TV -->
+    <dimen name="shareButton_vPadding">12dp</dimen>  <!-- Larger padding for TV -->
+    <dimen name="restartButton_text">20sp</dimen>  <!-- Larger for TV -->
+    <dimen name="restartButton_hPadding">12dp</dimen>  <!-- Larger padding for TV -->
+    <dimen name="restartButton_vPadding">12dp</dimen>  <!-- Larger padding for TV -->
+
+    <dimen name="margin_medium">24dp</dimen>  <!-- Larger margins for TV -->
+    <dimen name="margin_sep">26dp</dimen>  <!-- Larger margins for TV -->
+    <dimen name="margin_smallSep">16dp</dimen>  <!-- Larger margins for TV -->
+    <dimen name="margin_largeSep">72dp</dimen>  <!-- Larger margins for TV -->
+
+</resources>
